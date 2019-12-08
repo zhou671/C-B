@@ -25,7 +25,7 @@ cb = c_b(root)
 sb = scoreBoard(root)
 
 cb.setscorBoard(sb)
-inst.setpara(play)
+inst.setpara(startFrame)
 startFrame.setpara(inst, play)
 play.setpara(rdy)
 rdy.setpara(play, cb)

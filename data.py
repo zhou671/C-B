@@ -1,27 +1,27 @@
 TriviaQ = [
-    "What artist released the album ‘Astroworld’ in 2018?",
+    "What artist released the album 'Astroworld' in 2018?",
     "What city hosted the summer Olympics in 2016?",
-    "What actor starred as The Joker in the movie “Joker” released in 2019?",
-    "What actor starred as Daenerys Targaryen on HBO’s Game of Thrones?",
+    "What actor starred as The Joker in the movie 'Joker' released in 2019?",
+    "What actor starred as Daenerys Targaryen on HBO's Game of Thrones?",
     "Who won the 2019 NFL Super Bowl?",
     "Which team won the 2019 NBA Championship?",
     "Which 2012 movie was based of off the U.S. Navy Seals asassination of the Al-Qaeda leader Osama Bin-Laden?",
     "In what year was Amazon Prime started?",
     "In what year was Pluto voted to no longer be a planet?",
-    "What song by South Korean Artist “PSY” became an internet sensation in 2012?",
+    "What song by South Korean Artist 'PSY' became an internet sensation in 2012?",
     "Which of the following NHL teams has never won a Stanley Cup?",
     "Which American Television Series consisted of one hectic day of the life of Agent Jack Bauer that ended in 2010",
-    "Which artist was featured in the hit song “10 Freaky Girls” by Metro Boomin?",
+    "Which artist was featured in the hit song '10 Freaky Girls' by Metro Boomin?",
     "Which water mass did a major oil spill occur that eliminated significant wildlife and shut down many water ports?",
     "What year was gay marriage legalized in the United States",
-    "Who is the artist behind the 2019 hit song “Old Town Road”?",
-    "Who is the artist behind the 2017 hit song “Shape of You”",
+    "Who is the artist behind the 2019 hit song 'Old Town Road'?",
+    "Who is the artist behind the 2017 hit song 'Shape of You'",
     "Which artist won a 2018 Grammy for Album of the Year",
     "Elon Musk, founder of Tesla, is from which country?",
-    "Which fictional character did Leonardo DiCaprio portray in the movie “The Wolf of Wall Street”",
+    "Which fictional character did Leonardo DiCaprio portray in the movie 'The Wolf of Wall Street'",
     "Which movie was the highest grossing worldwide film in the 2010s?",
-    "Which infamous 90’s artist was convicted in 2019 of 10 aggravated sexual assaults?",
-    "What city is the show “The Office” based in?"
+    "Which infamous 90's artist was convicted in 2019 of 10 aggravated sexual assaults?",
+    "What city is the show 'The Office' based in?"
 ]
 
 TriviaA = [

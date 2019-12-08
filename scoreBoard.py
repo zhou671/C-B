@@ -50,9 +50,9 @@ class scoreBoard():
         if self.visited % 2 == 1:
             string = None
             if self.cb.score[0] > self.cb.score[1]:
-                string = "Red team win!"
+                string = "Red team wins!"
             else:
-                string = "Blue team win!"
+                string = "Blue team wins!"
             self.winningPrompt = tkinter.Label(self.root, bg=self.mycolor, text=string, width=25, font=('Helvetica', 20), anchor=tkinter.W)
             self.winningPrompt.pack()
             self.winningPrompt.place(relx = 0.3, rely=0.7)
@@ -72,6 +72,9 @@ class scoreBoard():
 
     def hisBut(self):
         self.index= 0
+        if self.winningPrompt != None:
+            self.winningPrompt.pack_forget()
+            self.winningPrompt.place_forget()
         self.nextRd.pack_forget()
         self.nextRd.place_forget()
         self.reportHisBut.pack_forget()
@@ -127,7 +130,7 @@ class scoreBoard():
         self.curCA = tkinter.Label(self.root, bg=self.mycolor, text="Correct Answer is: " + chr(ord('A') + TriviaCA[self.Qindex]), width=25,font=('Helvetica', 20), anchor=tkinter.W)
         self.QMlabel = tkinter.Label(self.root, fg=self.cb.play.colors[self.QMteam], bg=self.mycolor, text="Question Master decide the question is: " + str(self.records[self.index]['QM']), width=50,font=('Helvetica', 20), anchor=tkinter.W)
         self.Catch = tkinter.Label(self.root, fg=self.cb.play.colors[self.QMteam + 1], bg=self.mycolor, text="Whether catchers catched: " + str(self.records[self.index]['Catch']), width=25,font=('Helvetica', 20), anchor=tkinter.W)
-        self.choice = tkinter.Label(self.root, fg=self.cb.play.colors[self.QMteam], bg=self.mycolor, text="Teammate's Answer" + chr(ord('A') + self.records[self.index]['Teammate']), width=25,font=('Helvetica', 20), anchor=tkinter.W)
+        self.choice = tkinter.Label(self.root, fg=self.cb.play.colors[self.QMteam], bg=self.mycolor, text="Teammate's Answer" + chr(ord('A') + self.records[self.index]['Teammate']), width=20,font=('Helvetica', 20), anchor=tkinter.W)
 
         for i in range(0, len(self.curQ)):
             self.curQ[i].pack()

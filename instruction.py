@@ -6,10 +6,14 @@ class instruction():
         self.root = root
         self.mycolor = '#%02x%02x%02x' % (255, 214, 153)
         self.frame = 0
+        self.add = 0
         
         self.nextButton = tkinter.Button(self.root, bg=self.mycolor, bd = 0, text="Next>>", width=10,font=('Helvetica', 20), command=self.nexttrans)
 
         # frame1
+        self.rule1 = tkinter.Label(self.root, fg="black", bg=self.mycolor, text="Game includs 4 players, 2 teams and 3 roles.", width=50,font=('Helvetica', 20))
+        self.rule2 = tkinter.Label(self.root, fg="black", bg=self.mycolor, text="As distributed in following:", width=50,font=('Helvetica', 20))
+        self.rule3 = tkinter.Label(self.root, fg="black", bg=self.mycolor, text="The goal is to take as many points as you can for you team", width=50,font=('Helvetica', 20))
         self.QMlabel = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Question Master", width=30,font=('Helvetica', 20))
         self.TMlabel = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Teammate", width=25,font=('Helvetica', 20))
         self.c1label = tkinter.Label(self.root, fg="blue", bg=self.mycolor, text="Catcher1", width=25,font=('Helvetica', 20))
@@ -17,6 +21,9 @@ class instruction():
         self.team1label = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Team Red", width=25,font=('Helvetica', 20))
         self.team2label = tkinter.Label(self.root, fg="blue", bg=self.mycolor, text="Team Blue", width=25,font=('Helvetica', 20))
         
+        # prompt
+        self.addprompt1 = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Question Master! Don't show your screen to anyone else!", width=50,font=('Helvetica', 20))
+
         # frame2
         self.prompt4A = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Read the question and answers aloud!", width=35, font=('Helvetica', 20), anchor=tkinter.W)
         self.prompt5A = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Enter your teammate's choice.", width=35, font=('Helvetica', 20), anchor=tkinter.W)
@@ -48,12 +55,16 @@ class instruction():
         self.QMwrongtButton = tkinter.Button(self.root, bg=self.mycolor, text="Wrong", width=10, font=('Helvetica', 20), anchor=tkinter.W)
 
         # frame4
-        self.prompt4Cat = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Since you decide your teammate's answer is correct, ", width=40, font=('Helvetica', 20), anchor=tkinter.W)
-        self.prompt5Cat = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="let the catcher decide whehter to catch or pass.", width=40, font=('Helvetica', 20), anchor=tkinter.W)
+        self.prompt4Cat = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Since you decide your teammate's answer is correct.", width=50, font=('Helvetica', 20), anchor=tkinter.W)
+        self.prompt5Cat = tkinter.Label(self.root, fg="red", bg=self.mycolor, text="Let the catcher decide whehter to catch or pass.", width=50, font=('Helvetica', 20), anchor=tkinter.W)
         self.CatchcatchButton = tkinter.Button(self.root, bg=self.mycolor, text="Catch!", width=10, font=('Helvetica', 20), anchor=tkinter.W)
         self.CatchpassButton = tkinter.Button(self.root, bg=self.mycolor, text="Pass", width=10, font=('Helvetica', 20), anchor=tkinter.W)
 
         self.play = None
+
+    def reset(self):
+        self.frame = 0
+        self.add = 0
 
     def setpara(self, play):
         self.play=play
@@ -66,12 +77,18 @@ class instruction():
         self.team1label.pack()
         self.team2label.pack()
 
-        self.QMlabel.place(relx=0.1, rely=0.4)
-        self.TMlabel.place(relx=0.1, rely=0.6)
-        self.c1label.place(relx=0.5, rely=0.4)
-        self.c2label.place(relx=0.5, rely=0.6)
-        self.team1label.place(relx=0.1, rely=0.2)
-        self.team2label.place(relx=0.5, rely=0.2)
+        self.QMlabel.place(relx=0.1, rely=0.6)
+        self.TMlabel.place(relx=0.1, rely=0.7)
+        self.c1label.place(relx=0.5, rely=0.6)
+        self.c2label.place(relx=0.5, rely=0.7)
+        self.team1label.place(relx=0.1, rely=0.5)
+        self.team2label.place(relx=0.5, rely=0.5)
+        self.rule1.pack()
+        self.rule1.place(relx=0.1, rely = 0.2)
+        self.rule2.pack()
+        self.rule2.place(relx=0.1, rely = 0.3)
+        self.rule3.pack()
+        self.rule3.place(relx=0.1, rely = 0.4)
         
         self.nextButton.pack()
         self.nextButton.place(relx = 0.85, rely = 0.9)
@@ -91,6 +108,21 @@ class instruction():
         self.team1label.place_forget()
         self.team2label.place_forget()
 
+        self.rule1.pack_forget()
+        self.rule1.place_forget()
+        self.rule2.pack_forget()
+        self.rule2.place_forget()
+        self.rule3.pack_forget()
+        self.rule3.place_forget()
+
+    def displayprompt1(self):
+        self.addprompt1.pack()
+        self.addprompt1.place(relx = 0.1, rely = 0.4)
+
+    def cleanprompt1(self):
+        self.addprompt1.pack_forget()
+        self.addprompt1.place_forget()
+
     def displayf2(self):
         self.prompt4A.pack()
         self.prompt4A.place(relx=0.1, rely=0.05)
@@ -102,7 +134,7 @@ class instruction():
 
         for i in range(0, len(TriviaA[13])):
             self.exmapleA[i].pack()
-            self.exmapleA[i].place(relx=0.15, rely=0.45 + 0.1 * i)
+            self.exmapleA[i].place(relx=0.2, rely=0.45 + 0.1 * i)
 
         for i in range(0, len(TriviaA[13])):
             self.exampleButton[i].pack()
@@ -188,9 +220,15 @@ class instruction():
         self.exampleCA.place_forget()
 
     def nexttrans(self):
-        if self.frame == 0:
-            self.frame += 1
+        if self.frame == 0 and self.add == 0:
+            self.add += 1
             self.cleanf1()
+            self.displayprompt1()
+            return
+
+        if self.frame == 0  and self.add == 1:
+            self.frame += 1
+            self.cleanprompt1()
             self.displayf2()
             return
 
@@ -206,4 +244,5 @@ class instruction():
 
         if self.frame == 3:
             self.clean()
+            self.reset()
             self.play.display()

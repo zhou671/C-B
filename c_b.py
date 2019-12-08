@@ -60,8 +60,8 @@ class c_b():
         self.QMwrongtButton.pack_forget()
         self.QMwrongtButton.place_forget()
 
-        self.prompt1 = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text="Since you decide your teammate's answer is correct, ", width=40, font=('Helvetica', 20), anchor=tkinter.W)
-        self.promtp2 = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text="let the catcher decide whehter to catch or pass.", width=40, font=('Helvetica', 20), anchor=tkinter.W)
+        self.prompt1 = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text="Since you decide your teammate's answer is correct.", width=50, font=('Helvetica', 20), anchor=tkinter.W)
+        self.promtp2 = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text="Let the catcher decide whehter to catch or pass.", width=50, font=('Helvetica', 20), anchor=tkinter.W)
 
         self.prompt1.pack()
         self.prompt1.place(relx=0.1, rely=0.05)
@@ -178,6 +178,7 @@ class c_b():
         if len(self.questionSeq) == 0:
             self.questionSeq = list(np.random.choice(23, 23, replace=False))
         self.Qindex = self.questionSeq.pop()
+        print(self.Qindex)
         self.record['Qid'] = self.Qindex
         self.prompt1 = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text="Read the question and answers aloud!", width=35, font=('Helvetica', 20), anchor=tkinter.W)
         self.promtp2 = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text="Enter your teammate's choice.", width=35, font=('Helvetica', 20), anchor=tkinter.W)
@@ -210,7 +211,7 @@ class c_b():
 
         for i in range(0, len(TriviaA[self.Qindex])):
             self.curA[i].pack()
-            self.curA[i].place(relx=0.15, rely=0.45 + 0.1 * i)
+            self.curA[i].place(relx=0.2, rely=0.45 + 0.1 * i)
 
         for i in range(0, len(TriviaA[self.Qindex])):
             self.curButton[i].pack()
@@ -275,7 +276,7 @@ class c_b():
     def display(self):
         if len(self.questionSeq) == 0:
             self.questionSeq = list(np.random.choice(23, 23, replace=False))
-        self.timer = 5
+        self.timer = 60
         self.catchtime = 5
         self.catchtimer = tkinter.Label(self.root, fg=self.play.colors[(self.QMindex+1)%2], bg=self.mycolor, text=str(self.timer), width=5,font=('Helvetica', 20))
         self.timePrompt = tkinter.Label(self.root, fg=self.play.colors[self.QMindex], bg=self.mycolor, text=str(self.catchtime), width=5,font=('Helvetica', 20))
@@ -339,7 +340,7 @@ class c_b():
 
         for i in range(0, len(TriviaA[self.Qindex])):
             self.curA[i].pack()
-            self.curA[i].place(relx=0.15, rely=0.45 + 0.1 * i)
+            self.curA[i].place(relx=0.2, rely=0.45 + 0.1 * i)
 
         for i in range(0, len(TriviaA[self.Qindex])):
             self.curButton[i].pack()
